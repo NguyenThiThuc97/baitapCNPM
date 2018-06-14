@@ -1,0 +1,18 @@
+ private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            bool _IsActive = false;
+            foreach (Form form in Application.OpenForms.OfType<Form>().ToList())
+            {
+                if (form.GetType() == typeof(FrmChoNhanVienCongTy.FrmTimKiem_XoaThietBiSuaChua))
+                {
+                    form.Activate();
+                    _IsActive = true;
+                }
+            }
+            if (!_IsActive)
+            {
+                FrmChoNhanVienCongTy.FrmTimKiem_XoaThietBiSuaChua PreTest = new FrmChoNhanVienCongTy.FrmTimKiem_XoaThietBiSuaChua();
+                PreTest.MdiParent = this;
+                PreTest.Show();
+            }
+        }
